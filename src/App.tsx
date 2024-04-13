@@ -20,20 +20,17 @@ function App() {
     event.preventDefault();
 
     if (value) {
-
       const data = {
         name: value,
         id: list.length + 1
       }
-
       const concated = list.concat(data)
-      await localStorage.setItem('items', JSON.stringify(list));
+      await localStorage.setItem('items', JSON.stringify(concated));
       setList(concated);
     }
 
     setValue('');
   }
-
 
   const showList = async () => {
     const items = await localStorage.getItem('items');
